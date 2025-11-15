@@ -1,0 +1,184 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais moderna */
+  background-color: #eef4f7; /* Cor de fundo mais clara */
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+  opacity: 0; /* Começa invisível para a animação */
+  animation: fadeIn 1s ease-out forwards; /* Animação de entrada */
+  animation-delay: 0.2s; /* Pequeno atraso */
+}
+
+h1 {
+  color: #0069d9; /* Azul mais escuro */
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #0069d9;
+  padding-bottom: 10px;
+  font-size: 2.2em; /* Título maior */
+  animation: slideInFromTop 0.8s ease-out forwards; /* Animação de entrada */
+}
+
+h2 {
+  color: #444;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 1.6em;
+}
+
+#stats-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  animation: fadeIn 1.2s ease-out forwards; /* Animação de entrada */
+  animation-delay: 0.5s;
+}
+
+.stat-card {
+  background-color: #e0f2f7; /* Azul claro */
+  border: 1px solid #b3e0ed;
+  padding: 20px;
+  border-radius: 8px;
+  width: 45%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  min-width: 300px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para hover */
+  opacity: 0;
+  animation: slideInFromLeft 0.8s ease-out forwards; /* Animação de entrada */
+  animation-delay: var(--delay); /* Usar variável CSS para atraso dinâmico */
+}
+
+/* Efeito ao passar o mouse nos cards */
+.stat-card:hover {
+  transform: translateY(-5px); /* Move levemente para cima */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+
+.stat-card h3 {
+  margin-top: 0;
+  color: #004085; /* Azul mais escuro */
+}
+
+.stat-card p {
+  font-size: 1.1em;
+  margin: 5px 0;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #218838; /* Verde mais escuro */
+}
+
+.chart-area {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards; /* Animação de entrada */
+  animation-delay: 1s;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #d0d0d0;
+  color: #777;
+  font-size: 0.9em;
+  animation: fadeIn 1s ease-out forwards; /* Animação de entrada */
+  animation-delay: 1.2s;
+}
+
+/* ================================== */
+/* ANIMAÇÕES KEYFRAMES                */
+/* ================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ================================== */
+/* MEDIA QUERIES PARA RESPONSIVIDADE  */
+/* ================================== */
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 20px 10px;
+    border-radius: 8px;
+  }
+
+  #stats-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .stat-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .stat-card p {
+    font-size: 1em;
+  }
+
+  footer p {
+    font-size: 0.8em;
+  }
+}
